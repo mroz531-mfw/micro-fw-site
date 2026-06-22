@@ -1,29 +1,23 @@
 # micro-fw.com
 
-One-page site for Mike Roselli's financial-wellness business.
+The website for **Micro Financial Wellness** — Mike Roselli's financial-coaching business. One page, no build step.
+
+**👉 If you're Mike, open [`START-HERE.md`](START-HERE.md) first.** It walks you through everything in plain English: getting your web address working, editing the site, swapping photos, and undoing mistakes.
+
+## What's in here
+- `index.html` — the whole site (all the words live in this one file).
+- `emblem.png` — the logo. `mike.jpg` — the headshot.
+- `START-HERE.md` — the full, plain-English owner's guide.
 
 ## How it's hosted
-Static site on **GitHub Pages**. The `CNAME` file points the custom domain **micro-fw.com** at it. There's no build step — `index.html` is served as-is. Any push to the default branch republishes within ~a minute.
+A free static site on **GitHub Pages**. There's no build step — `index.html` is served as-is, and anything you save (commit) goes live within about a minute. The custom web address, micro-fw.com, is connected through your domain settings at Namecheap (walked through in START-HERE, Step 5).
 
-## Updating the site
-- **Owner's guide (for Mike):** see [`START-HERE.md`](START-HERE.md) — the full ELI5 walkthrough (account, transfer, DNS, editing text + images, undo). This is the doc to hand off.
-- **Replacing the design:** drop the exported files from Claude Design in here (replace `index.html` and add any assets), keep `CNAME` as-is, commit, push.
+## Connecting micro-fw.com — technical quick reference
+START-HERE.md has the friendly, step-by-step version. The short of it:
+1. In GitHub → **Settings → Pages**, set the custom domain to `micro-fw.com` (this creates a `CNAME` file automatically).
+2. At **Namecheap → Advanced DNS**, delete the default parking records, then add:
+   - four **A records** on host `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - one **CNAME** on host `www` → `YOUR-USERNAME.github.io`
+3. Back in **Settings → Pages**, check **Enforce HTTPS** once it becomes available.
 
-## First-time deploy (one-time)
-1. Create the repo under the **owner's GitHub account** (the goal is Mike's account — see the AIOS brief for the ownership/transfer plan). Push these files.
-2. Repo **Settings → Pages** → Source: deploy from the default branch, root. Then set the custom domain to `micro-fw.com` in that same Pages panel — GitHub creates the `CNAME` file automatically. (The repo ships WITHOUT a CNAME so the `*.github.io` URL works immediately; CNAME appears once the domain is connected.)
-3. Configure DNS at **Namecheap** (see below).
-4. Once the cert provisions, enable **Enforce HTTPS** in Settings → Pages.
-
-## DNS at Namecheap (micro-fw.com)
-Namecheap → **Domain List** → **Manage** (micro-fw.com) → **Advanced DNS**:
-1. **Delete** Namecheap's default records that would conflict — the parking-page `CNAME` on host `@` and any `URL Redirect Record`.
-2. Add four **A Record**s, all on host `@`, pointing the apex at GitHub Pages:
-   - `185.199.108.153`
-   - `185.199.109.153`
-   - `185.199.110.153`
-   - `185.199.111.153`
-3. Add one **CNAME Record**: host `www` → value `<github-username>.github.io.` (trailing dot).
-4. Leave TTL on Automatic. Propagation is usually minutes, occasionally up to a few hours.
-
-(GitHub's apex IPs above are current as of 2026-06; if Pages ever fails to verify the domain, re-check them against GitHub's "Managing a custom domain" docs.)
+(GitHub's A-record IPs are current as of mid-2026; if the domain ever won't verify, re-check them in GitHub's "Managing a custom domain" docs.)

@@ -83,7 +83,7 @@ Your whole site is one file: **index.html**. Your words live inside it, and you 
 - **Your bio:** search `I'm Mike Roselli`
 
 ### Swap a photo or the logo
-Your images live in the **assets** folder: `emblem.png` (logo) and `mike.jpg` (your headshot).
+Your two images sit right next to `index.html` in the main folder: `emblem.png` (logo) and `mike.jpg` (your headshot).
 1. On your repo, click **Add file → Upload files**.
 2. Drag in your new image, renamed to the **exact same name** (`mike.jpg` or `emblem.png`).
 3. Click **Commit changes**. Because the name matches, the site swaps it automatically.
@@ -94,7 +94,7 @@ Your images live in the **assets** folder: `emblem.png` (logo) and `mike.jpg` (y
 Every save is its own version. To undo, click **Commits** (the little clock/history icon on the repo) — you can see every change and roll one back. If you're unsure, send Maurice the link and he can revert it in seconds.
 
 ### The short "please don't touch" list
-- Don't delete **index.html** or the **assets** folder. (Once you've connected your domain in Step 5, don't delete the **CNAME** file either — that's what keeps micro-fw.com working.)
+- Don't delete **index.html** or your image files (**emblem.png**, **mike.jpg**). (Once you've connected your domain in Step 5, don't delete the **CNAME** file either — that's what keeps micro-fw.com working.)
 - Don't rename files.
 - Don't change anything inside `< >` unless you're sure what it is — just the readable words.
 
